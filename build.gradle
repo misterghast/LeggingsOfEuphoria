@@ -1,7 +1,7 @@
 buildscript {
     repositories {
         maven { 
-			url = 'https://maven.cleanroommc.com' 
+			url = 'https://files.minecrafforge.net/maven'
 		}
 		maven { 
 			url = 'https://repo.spongepowered.org/maven' 
@@ -55,7 +55,7 @@ minecraft {
 
 repositories {
 	maven { 
-		url = 'https://maven.cleanroommc.com' 
+		url = 'https://maven.cleanroommc.com'
 	}
     maven {
         url = 'https://repo.spongepowered.org/maven'
