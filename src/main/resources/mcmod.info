@@ -1,0 +1,16 @@
+[
+{
+  "modid": "owo",
+  "name": "Leggings of Euphoria",
+  "description": "Adds kick-ass thigh-highs.",
+  "version": "1.1",
+  "mcversion": "1.12.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Ghast"],
+  "credits": "CleanroomMC for their development template.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

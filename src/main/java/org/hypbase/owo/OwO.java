@@ -16,7 +16,7 @@ import org.hypbase.owo.network.SyncEuphoriaMessage;
 
 import java.util.concurrent.Callable;
 
-@Mod(modid="owo", name="Leggings of Euphoria", version="0.4", useMetadata=false)
+@Mod(modid="owo", name="Leggings of Euphoria")
 public class OwO {
 
     //@SidedProxy(modId="owo", clientSide="OwOEvents",serverSide="OwOServerEvents")
