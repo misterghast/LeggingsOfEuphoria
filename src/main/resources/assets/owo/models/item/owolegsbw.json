@@ -1,0 +1,60 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "owo:item/bw_item",
+		"particle": "owo:item/bw_item"
+	},
+	"elements": [
+		{
+			"name": "Right Leg Armor",
+			"from": [8.4, -2.5, 5.5],
+			"to": [13.4, 10.5, 10.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-7, 6, -8]},
+			"faces": {
+				"north": {"uv": [4, 4, 8, 16], "texture": "#1"},
+				"east": {"uv": [0, 4, 4, 16], "texture": "#1"},
+				"south": {"uv": [12, 4, 16, 16], "texture": "#1"},
+				"west": {"uv": [8, 4, 12, 16], "texture": "#1"},
+				"up": {"uv": [8, 4, 4, 0], "texture": "#1"},
+				"down": {"uv": [12, 0, 8, 4], "texture": "#1"}
+			}
+		},
+		{
+			"name": "Left Leg Armor",
+			"from": [3.6, 3.5, 3.5],
+			"to": [8.6, 16.5, 8.5],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [-7, 6, -8]},
+			"faces": {
+				"north": {"uv": [4, 4, 8, 16], "texture": "#1"},
+				"east": {"uv": [0, 4, 4, 16], "texture": "#1"},
+				"south": {"uv": [12, 4, 16, 16], "texture": "#1"},
+				"west": {"uv": [8, 4, 12, 16], "texture": "#1"},
+				"up": {"uv": [8, 4, 4, 0], "texture": "#1"},
+				"down": {"uv": [12, 0, 8, 4], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 3.75, 0]
+		},
+		"gui": {
+			"rotation": [0, -138, 0],
+			"translation": [0, 3, 0]
+		}
+	},
+	"groups": [
+		{
+			"name": "RightLeg",
+			"origin": [1.9, 12, 0],
+			"color": 0,
+			"children": [0]
+		},
+		{
+			"name": "LeftLeg",
+			"origin": [-1.9, 12, 0],
+			"color": 0,
+			"children": [1]
+		}
+	]
+}

@@ -1,6 +1,7 @@
 package org.hypbase.owo;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -8,6 +9,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.ISpecialArmor;
@@ -32,23 +34,23 @@ public class OwOEvents {
     @GameRegistry.ObjectHolder("owo:owolegs")
     public static final OwOArmorItem owolegs = null;
 
-    @GameRegistry.ObjectHolder("owo:owolegs1")
-    public static final OwOArmorItem owolegs1 = null;
+    @GameRegistry.ObjectHolder("owo:owolegsbw")
+    public static final OwOArmorItem owolegsbw = null;
 
     @SubscribeEvent
     public void registerItems(RegistryEvent.Register<Item> event) {
-        OwOArmorItem owolegs = new OwOArmorItem(OwOItems.Tier1OwO, EntityEquipmentSlot.LEGS);
+        OwOArmorItem owolegs = new OwOArmorItem(OwOItems.Tier1OwO, EntityEquipmentSlot.LEGS, "trans");
         owolegs.setRegistryName(new ResourceLocation(OwO.MOD_ID, "owolegs"));
         owolegs.setTranslationKey(OwO.MOD_ID + "." + "owolegs");
 
-        OwOArmorItem owolegs1 = new OwOArmorItem(OwOItems.Tier2OwO, EntityEquipmentSlot.LEGS);
-        owolegs1.setRegistryName(new ResourceLocation(OwO.MOD_ID, "owolegs1"));
-        owolegs1.setTranslationKey(OwO.MOD_ID + "." + "owolegs1");
+        OwOArmorItem owolegsbw = new OwOArmorItem(OwOItems.Tier1OwO, EntityEquipmentSlot.LEGS, "bw");
+        owolegsbw.setRegistryName(new ResourceLocation(OwO.MOD_ID, "owolegsbw"));
+        owolegsbw.setTranslationKey(OwO.MOD_ID + "." + "owolegs");
 
 
 
         event.getRegistry().register(owolegs);
-        event.getRegistry().register(owolegs1);
+        event.getRegistry().register(owolegsbw);
         for(Map.Entry<ResourceLocation, Item> entry : event.getRegistry().getEntries()) {
             System.out.println(entry.getKey().toString());
         }
@@ -57,8 +59,9 @@ public class OwOEvents {
     @SubscribeEvent
     public void modelRegistry(ModelRegistryEvent event) {
         ModelLoader.setCustomModelResourceLocation(owolegs, 0, new ModelResourceLocation("owo:owolegs", "inventory"));
-        ModelLoader.setCustomModelResourceLocation(owolegs1, 0, new ModelResourceLocation("owo:owolegs", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(owolegsbw, 0, new ModelResourceLocation("owo:owolegsbw", "inventory"));
     }
+
 
 
     //For testing.

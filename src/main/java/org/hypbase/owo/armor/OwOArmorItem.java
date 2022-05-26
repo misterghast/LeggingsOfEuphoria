@@ -3,6 +3,7 @@ package org.hypbase.owo.armor;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,7 +14,8 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.text.translation.I18n;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
@@ -37,17 +39,17 @@ import java.util.UUID;
 public class OwOArmorItem extends ItemArmor {
 
     private static final UUID[] ARMOR_MODIFIERS = new UUID[] {UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150")};
+    private String variant;
 
-
-    public OwOArmorItem(ArmorMaterial materialIn, EntityEquipmentSlot equipmentSlotIn) {
+    public OwOArmorItem(ArmorMaterial materialIn, EntityEquipmentSlot equipmentSlotIn, String variant) {
         super(materialIn, 0, equipmentSlotIn);
-
+        this.variant = variant;
     }
 
     @Override
     public String getArmorTexture(ItemStack itemstack, Entity entity, EntityEquipmentSlot slot, String layer) {
         if (slot == EntityEquipmentSlot.LEGS) {
-            return OwO.MOD_ID + ":textures/armor/" + "owo_2" + ".png";
+            return OwO.MOD_ID + ":textures/armor/" + "owo_2" + "_" + this.variant + ".png";
         } else {
             return OwO.MOD_ID + ":textures/armor/" + "owo_1" + ".png";
         }
@@ -61,13 +63,7 @@ public class OwOArmorItem extends ItemArmor {
 
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
-        String r = super.getItemStackDisplayName(stack);
-        //if(stack.hasCapability(EuphoriaProvider.EUPHORIA_CAPABILITY, null)) {
-            //return "§b" + r + "§r" + " +" + stack.getCapability(EuphoriaProvider.EUPHORIA_CAPABILITY, null).getLevel();
-        //} else {
-            return "§b" + r + "§r";
-        //}
-
+        return I18n.format(this.getTranslationKey(), TextFormatting.AQUA, TextFormatting.RESET);
     }
 
     @Override
