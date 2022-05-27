@@ -22,9 +22,11 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.hypbase.owo.OwO;
+import org.hypbase.owo.OwOClientEvents;
 import org.hypbase.owo.capabilities.DefaultEuphoriaCapability;
 import org.hypbase.owo.capabilities.EuphoriaCapability;
 import org.hypbase.owo.capabilities.EuphoriaProvider;
+import org.hypbase.owo.models.LeggingsThin;
 import org.hypbase.owo.network.OwOPacketHandler;
 import org.hypbase.owo.network.SyncEuphoriaMessage;
 import scala.tools.nsc.doc.model.Def;
@@ -41,6 +43,8 @@ public class OwOArmorItem extends ItemArmor {
     private static final UUID[] ARMOR_MODIFIERS = new UUID[] {UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150")};
     private String variant;
 
+
+
     public OwOArmorItem(ArmorMaterial materialIn, EntityEquipmentSlot equipmentSlotIn, String variant) {
         super(materialIn, 0, equipmentSlotIn);
         this.variant = variant;
@@ -54,11 +58,9 @@ public class OwOArmorItem extends ItemArmor {
             return OwO.MOD_ID + ":textures/armor/" + "owo_1" + ".png";
         }
     }
-
-    @SideOnly(Side.CLIENT)
     @Override
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
-        return null;
+        return OwO.proxy.getArmorModel(entityLiving, itemStack, armorSlot, _default);
     }
 
     @Override
@@ -74,7 +76,6 @@ public class OwOArmorItem extends ItemArmor {
             return HashMultimap.<String, AttributeModifier>create();
         }
     }
-
     /*@Override
     public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
         int upgradeAmount = 0;

@@ -1,7 +1,9 @@
 package org.hypbase.owo;
 
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -31,6 +33,8 @@ import java.util.Map;
 
 @Mod.EventBusSubscriber
 public class OwOEvents {
+
+
     @GameRegistry.ObjectHolder("owo:owolegs")
     public static final OwOArmorItem owolegs = null;
 
@@ -48,18 +52,17 @@ public class OwOEvents {
         owolegsbw.setTranslationKey(OwO.MOD_ID + "." + "owolegs");
 
 
-
         event.getRegistry().register(owolegs);
         event.getRegistry().register(owolegsbw);
-        for(Map.Entry<ResourceLocation, Item> entry : event.getRegistry().getEntries()) {
-            System.out.println(entry.getKey().toString());
-        }
     }
 
     @SubscribeEvent
     public void modelRegistry(ModelRegistryEvent event) {
-        ModelLoader.setCustomModelResourceLocation(owolegs, 0, new ModelResourceLocation("owo:owolegs", "inventory"));
-        ModelLoader.setCustomModelResourceLocation(owolegsbw, 0, new ModelResourceLocation("owo:owolegsbw", "inventory"));
+
+    }
+
+    public <A extends ModelBiped> A getArmorModel(Entity entity, ItemStack itemStack, EntityEquipmentSlot slot, A _default) {
+        return null;
     }
 
 
